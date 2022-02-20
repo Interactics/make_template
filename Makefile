@@ -10,6 +10,14 @@ all : $(TARGET)
 clean :
 	rm -f $(OBJS) $(TARGET) 
 
-$(TARGET) : $(OBJS)
-	$(CC) -o $@ $^ 
-					
+debugging :
+	$(SHOW_THE_VARIABLES)
+
+$(TARGET): $(OBJS)
+	$(CC) -o $@ $^
+
+define SHOW_THE_VARIABLES
+	@echo $(INCLUDE_PATHS) $(OBJS) $(CC)
+	@echo ------------------------------
+	@echo ------------------------------
+endef
